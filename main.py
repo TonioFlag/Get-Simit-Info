@@ -2,6 +2,7 @@ import pandas as pd
 import time
 import random
 import os
+import sys
 
 from selenium import webdriver
 from selenium.webdriver.edge.service import Service
@@ -148,6 +149,9 @@ class getInfoSimit:
         with pd.ExcelWriter("MULTAS.xlsx", engine="openpyxl") as writer:
             multas.to_excel(writer, sheet_name="Multas", index=False)
             detalles.to_excel(writer, sheet_name="Detalles", index=False)
+
+        print(f"Evalución realizada con éxito de las {len(self.base["PLACA"].unique())} placas")
+        sys.exit()
     
     def app(self):
         try:
